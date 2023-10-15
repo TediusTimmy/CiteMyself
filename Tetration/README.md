@@ -27,7 +27,7 @@ This is a simple loop to do real tetration. It only works for integers, as it us
 
 ### lt
 
-This computes the common log of a tetration. The assumption here is that the actual tetration is too large to be evaluated, so we sneak up on it and compute it's logarithm. We use the common log so that the result has meaning to a human reader.
+This computes the common log of a tetration. The assumption here is that the actual tetration is too large to be evaluated, so we sneak up on it and compute it's logarithm. We use the common log so that the result has meaning to a human reader. Note that, although this function returns a fractional value, its inputs must be integers.
 
 The fundamental observation here is that `l(tet(x, y)) == tet(x, y - 1) * l(x)`. This is a standard law of logarithms: `l(x ^ y) == y * l(x)`. Again, we use the magnitude of `tet(x, y - 1)` to determine how many digits of logarithm we need in order for the whole result to be *accurate*.
 
@@ -35,7 +35,7 @@ Accuracy here is very important: this is a logarithm. The integral component is 
 
 ### tetra
 
-This is a strange function in that it prints out the result and doesn't return it. The tetra function makes sense of the result of `lt` and prints out the result in scientific notation (and the exponent is printed in scientific notation if it is longer than 15 digits). Notably, due to how bc works, if you just type `tetra(2,5)` you will get an extra `0` at the end, because the function doesn't print a newline and returns zero. You need to type something like `n = tetra(2, 5)` to not get the result of the function.
+This is a strange function in that it prints out the result and doesn't return it. The tetra function makes sense of the result of `lt` and prints out the result in scientific notation (and the exponent is printed in scientific notation if it is longer than 15 digits). Notably, due to how bc works, if you just type `tetra(2,5)` you will get an extra `0` at the end, because the function doesn't print a newline and returns zero. You need to type something like `n = tetra(2, 5)` to not get the result of the function. Also note that the inputs of this function can only be integers.
 
 ### order66
 
