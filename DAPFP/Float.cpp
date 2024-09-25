@@ -44,7 +44,7 @@ namespace BigInt
       Remember: you will get digits + 1 of actual precision.
     */
    unsigned long Float::minPrecision = 7;
-   unsigned long Float::maxPrecision = 65535;
+   unsigned long Float::maxPrecision = 134217727; // 2^27
 
 
    Float::Float (const std::string & from)
