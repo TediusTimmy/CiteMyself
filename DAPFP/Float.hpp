@@ -90,7 +90,7 @@ namespace BigInt
             precisionChanger(newPrecision);
           }
 
-         Integer exponent (void) const { return Exponent; }
+         const Integer & exponent (void) const { return Exponent; }
 
          bool isSigned (void) const { return Sign; }
          bool isNegative (void) const

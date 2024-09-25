@@ -19,8 +19,6 @@
 */
 #include "Float.hpp"
 
-#include <iostream>
-
 namespace BigInt
  {
 
