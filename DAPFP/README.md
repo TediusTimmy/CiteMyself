@@ -9,3 +9,9 @@ To do the thing:
 ```
 2 length 20000 copy * copy * copy * copy * copy * copy * copy * copy * copy * copy * copy * copy * copy * copy * copy * copy * 2 swap pow print
 ```
+
+Now, there is the Looper.c program. Use it like so:
+```
+./Looper | ./DAPFP
+```
+What really confuses me, right now, is the precision needs of the program in order to get a good result. Looper is set for 19800 digits of precision. Just going down to 19000 makes all of the digits of the significand garbage. I need to think about this more. At some squaring of the number, we will start losing a digit of accuracy per squaring (or, per some number x squarings). That makes sense. It also makes sense that over 65536 squarings, we will need extra precision. But, why is the precision `ln(2^^5) / ln(10)`?
