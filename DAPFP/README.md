@@ -17,3 +17,5 @@ Now, there is the Looper.c program. Use it like so:
 What really confuses me, right now, is the precision needs of the program in order to get a good result. Looper is set for 19800 digits of precision. Just going down to 19000 makes all of the digits of the significand garbage. I need to think about this more. At some squaring of the number, we will start losing a digit of accuracy per squaring (or, per some number x squarings). That makes sense. It also makes sense that over 65536 squarings, we will need extra precision. But, why is the precision `ln(2^^5) / ln(10)`?
 
 It's not. We start to converge on the answer at 19724 digits of precision. We lose a digit of accuracy for about every 3.32 multiplications. I'm sure there is a meaningful relationship here, but I'll have to look at it again later.
+
+Update: We lose a digit of accuracy for every `1 / log(2)` multiplications. When we take into account that the first fifteen operations are exact, then we need `65521 * log(2)` digits, which is 19724.
