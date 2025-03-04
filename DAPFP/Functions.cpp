@@ -201,6 +201,13 @@ namespace BigInt
       return res;
     }
 
+ /*
+   Short function to compute ln(10) while keeping all of the numbers below
+   the first cutoff point (after which we need ln(10)) and exponent zero.
+      This is ln(10) = ln(5/4) + 6 * ln(sqrt(2))
+   I don't know if this is the most efficient way to do this.
+      For all I know 2 * ln(sqrt(sqrt(sqrt(10)))) is faster.
+ */
    Float makeLN10 (const Float & opp)
     {
       Float temp1 (opp);
@@ -288,6 +295,13 @@ namespace BigInt
 
       mode = msDigits.roundToInteger().toInt();
 
+       /*
+         These numbers come from analyzing the convergence classes of the series.
+         177827941 is approximately the fourth root of ten.
+            It is the intersection point of "f(x) = x" and "f(x) = sqrt(10) / x"
+         562341325 is approximately the fourth root of ten cubed.
+            It is the intersection point of "f(x) = x / sqrt(10)" and "f(x) = 10 / x"
+       */
       if (mode < 177827941) /* 100000000 .. 177827940 */
        {
          copyOpp.Exponent = 0L;
